@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RMC</title>
+    <title>RMC - Daily Count Web App</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
+                <i class="fas fa-chart-line"></i>
                 <h1>RMC</h1>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#download">Launch App</a></li>
             </ul>
         </nav>
     </header>
@@ -24,73 +26,199 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <h2>Welcome to RMC</h2>
-                <p>Resource Management Center - Your daily tracking solution.</p>
-                <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" target="_blank" class="cta-button">Daily Count</a>
+                <div class="app-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h1>RMC Daily Count</h1>
+                <p class="tagline">The Ultimate Daily Tracking Web Application</p>
+                <p class="description">Streamline your daily counts and resource management with our powerful, easy-to-use web application. Track, analyze, and optimize your daily operations.</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" target="_blank" class="primary-btn">
+                        <i class="fas fa-rocket"></i>
+                        Launch App Now
+                    </a>
+                    <a href="#features" class="secondary-btn">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+                
+                <div class="app-badges">
+                    <span class="badge">✨ Web-Based</span>
+                    <span class="badge">🚀 Instant Access</span>
+                    <span class="badge">📊 Real-time Data</span>
+                </div>
             </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>This is a sample about section. You can customize this content to fit your needs.</p>
-                <div class="features">
-                    <div class="feature">
-                        <h3>Feature 1</h3>
-                        <p>Description of your first feature or service.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Feature 2</h3>
-                        <p>Description of your second feature or service.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Feature 3</h3>
-                        <p>Description of your third feature or service.</p>
+            
+            <div class="hero-visual">
+                <div class="app-preview">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-buttons">
+                                <span class="btn red"></span>
+                                <span class="btn yellow"></span>
+                                <span class="btn green"></span>
+                            </div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="app-interface">
+                                <h3>Daily Count Dashboard</h3>
+                                <div class="mock-chart"></div>
+                                <div class="mock-buttons">
+                                    <div class="mock-btn">Add Count</div>
+                                    <div class="mock-btn">View Reports</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="section">
+        <section id="features" class="features-section">
             <div class="container">
-                <h2>Our Services</h2>
-                <p>Here you can list the services you provide.</p>
-                <ul>
-                    <li>Web Development</li>
-                    <li>Web Design</li>
-                    <li>SEO Optimization</li>
-                    <li>Consulting</li>
-                </ul>
+                <h2>Powerful Features</h2>
+                <p class="section-subtitle">Everything you need to manage your daily counts efficiently</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Real-time Tracking</h3>
+                        <p>Monitor your daily counts in real-time with instant updates and live dashboard.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Advanced Analytics</h3>
+                        <p>Get detailed insights with comprehensive reports and visual analytics.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Storage</h3>
+                        <p>Your data is safely stored in the cloud and accessible from anywhere.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Access your application from any device - desktop, tablet, or mobile.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Reliable</h3>
+                        <p>Enterprise-grade security ensures your data is protected and always available.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Optimized performance for quick loading and smooth user experience.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section id="about" class="about-section">
             <div class="container">
-                <h2>Contact Us</h2>
-                <p>Get in touch with us using the form below.</p>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About RMC Daily Count</h2>
+                        <p>RMC Daily Count is a comprehensive web application designed to simplify and streamline your daily tracking needs. Whether you're managing inventory, tracking attendance, or monitoring daily metrics, our application provides the tools you need to stay organized and efficient.</p>
+                        
+                        <div class="stats">
+                            <div class="stat">
+                                <h3>99.9%</h3>
+                                <p>Uptime</p>
+                            </div>
+                            <div class="stat">
+                                <h3>24/7</h3>
+                                <p>Availability</p>
+                            </div>
+                            <div class="stat">
+                                <h3>0</h3>
+                                <p>Installation Required</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                    
+                    <div class="about-visual">
+                        <div class="tech-stack">
+                            <h3>Built with Modern Technology</h3>
+                            <div class="tech-items">
+                                <span class="tech-item">Google Apps Script</span>
+                                <span class="tech-item">Cloud Computing</span>
+                                <span class="tech-item">Real-time Updates</span>
+                                <span class="tech-item">Responsive Design</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="download-section">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Launch the RMC Daily Count web application now and start tracking your daily metrics efficiently.</p>
+                
+                <div class="download-options">
+                    <div class="download-card">
+                        <h3>Web Application</h3>
+                        <p>Access directly from your browser</p>
+                        <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" target="_blank" class="download-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch App
+                        </a>
                     </div>
-                    <button type="submit">Send Message</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- ...existing code... -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 RMC - Resource Management Center. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>RMC</span>
+                    </div>
+                    <p>Your daily tracking solution</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#download">Launch App</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <p>Need help? Contact our support team.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 RMC - Resource Management Center. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
