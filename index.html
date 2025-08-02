@@ -3,10 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RMC Commercial Daily Counting Start - Efficient tracking system for daily activities">
-  <meta name="keywords" content="RMC, commercial, daily counting, tracking, material entry">
+  <meta name="description" content="RMC Commercial Daily Counting Start - Professional tracking system for daily material entry and activity management">
+  <meta name="keywords" content="RMC, commercial, daily counting, tracking, material entry, inventory management, business analytics">
   <meta name="author" content="RMC Commercial Team">
-  <title>RMC - Daily Counting Start</title>
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#667eea">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="RMC Commercial - Daily Counting Start">
+  <meta property="og:description" content="Professional tracking system for daily material entry and activity management">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synques-cdn.s3.ap-south-1.amazonaws.com/rmchemicals.in/images/rmc-logo.png">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "RMC Daily Counting Start",
+    "description": "Professional tracking system for daily material entry and activity management",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web Browser",
+    "author": {
+      "@type": "Organization",
+      "name": "RMC Commercial Team"
+    }
+  }
+  </script>
+  
+  <title>RMC Commercial - Daily Counting Start</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -498,7 +523,149 @@
       100% { transform: rotate(360deg); }
     }
 
+    /* Professional Modal Dialog */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      background: white;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transform: scale(0.8) translateY(20px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .modal.active .modal-content {
+      transform: scale(1) translateY(0);
+    }
+    
+    .modal-header {
+      padding: 24px 24px 16px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .modal-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 0;
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #7f8c8d;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    
+    .modal-close:hover {
+      background: #f8f9fa;
+      color: #2c3e50;
+    }
+    
+    .modal-body {
+      padding: 24px;
+      line-height: 1.6;
+      color: #34495e;
+      white-space: pre-line;
+    }
+    
+    /* Enhanced Accessibility */
+    button:focus,
+    .app-icon:focus,
+    .grid-icon:focus {
+      outline: 2px solid #4CAF50;
+      outline-offset: 2px;
+    }
+    
+    /* Error State */
+    .error-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      color: #e74c3c;
+    }
+    
+    .error-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+    
+    /* Enhanced Loading States */
+    .button-loading {
+      position: relative;
+      pointer-events: none;
+    }
+    
+    .button-loading::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
     /* Responsive Design */
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 95%;
+        margin: 16px;
+      }
+      
+      .modal-header {
+        padding: 20px 20px 12px;
+      }
+      
+      .modal-body {
+        padding: 20px;
+      }
+    }
+    
     @media (max-width: 480px) {
       .main-content {
         padding: 16px;
@@ -516,9 +683,19 @@
       }
       
       .app-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         margin-top: 32px;
+      }
+      
+      .grid-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
+      }
+      
+      .grid-label {
+        font-size: 11px;
       }
     }
   </style>
@@ -536,8 +713,12 @@
   <!-- Main Content -->
   <div class="main-content">
     <div class="home-screen fade-in">
-      <div class="app-icon" onclick="launchApp()">
-        <img src="https://synques-cdn.s3.ap-south-1.amazonaws.com/rmchemicals.in/images/rmc-logo.png" alt="RMC Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-cubes\" style=\"font-size: 48px; color: #2c3e50;\"></i>';">
+      <div class="app-icon" id="appIcon" tabindex="0" role="button" aria-label="Launch RMC Daily Counting Application">
+        <img id="appLogo" src="https://synques-cdn.s3.ap-south-1.amazonaws.com/rmchemicals.in/images/rmc-logo.png" alt="RMC Logo" loading="lazy">
+        <div class="error-fallback" id="logoFallback" style="display: none;">
+          <i class="fas fa-cubes error-icon"></i>
+          <div>Logo unavailable</div>
+        </div>
       </div>
       <div class="app-name slide-up">Daily Counting Start</div>
       <div class="app-description slide-up">Start your daily counting process with our efficient tracking system. Monitor and record daily activities seamlessly.</div>
@@ -547,29 +728,44 @@
       
       <div class="app-grid">
         <div class="grid-item">
-          <div class="grid-icon" onclick="openInfo()">
+          <div class="grid-icon" id="infoBtn" tabindex="0" role="button" aria-label="Application Information">
             <i class="fas fa-info"></i>
           </div>
           <div class="grid-label">Info</div>
         </div>
         <div class="grid-item">
-          <div class="grid-icon" onclick="openSettings()">
+          <div class="grid-icon" id="settingsBtn" tabindex="0" role="button" aria-label="Application Settings">
             <i class="fas fa-cog"></i>
           </div>
           <div class="grid-label">Settings</div>
         </div>
         <div class="grid-item">
-          <div class="grid-icon" onclick="openHelp()">
+          <div class="grid-icon" id="helpBtn" tabindex="0" role="button" aria-label="Help and Support">
             <i class="fas fa-question"></i>
           </div>
           <div class="grid-label">Help</div>
         </div>
         <div class="grid-item">
-          <div class="grid-icon" onclick="openDashboard()">
+          <div class="grid-icon" id="dashboardBtn" tabindex="0" role="button" aria-label="View Dashboard">
             <i class="fas fa-chart-bar"></i>
           </div>
           <div class="grid-label">Dashboard</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Modal Dialog -->
+  <div class="modal" id="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalContent">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Information</h2>
+        <button class="modal-close" id="modalClose" aria-label="Close dialog">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalContent">
+        Content will be loaded here...
       </div>
     </div>
   </div>
@@ -650,68 +846,85 @@
       }, 1500);
     }
 
-    // Enhanced grid icon functions with loading states
-    function openInfo() {
-      showLoading('Loading Application Info...');
-      setTimeout(() => {
-        hideLoading();
-        alert('🏢 RMC Commercial - Daily Counting Start\n\n' +
-              '📋 Application Details:\n' +
-              '• Version: 1.0\n' +
-              '• Department: Commercial Team\n\n' +
-              '👨‍💼 Admin Information:\n' +
-              '• Modify Admin: Lakshan\n' +
-              '• Contact: 0772892711\n\n' +
-              '🌐 Platform: RMC Commercial Web Portal');
-      }, 800);
+    document.getElementById('infoBtn').addEventListener('click', () => openModal('App Info', '🏢 RMC Commercial - Daily Counting Start\n\n📋 Application Details:\n• Version: 1.0\n• Department: Commercial Team\n\n👨‍💼 Admin Information:\n• Modify Admin: Lakshan\n• Contact: 0772892711\n\n🌐 Platform: RMC Commercial Web Portal'));
+    document.getElementById('settingsBtn').addEventListener('click', () => openModal('Settings', '⚙️ Application Settings\n\n🔧 Web Application Configuration:\n• Daily Counting Start: Active\n• Data Sync: Real-time\n• Auto-save: Enabled\n\n🌐 Connection Status:\n• Google Apps Script: Connected\n• Database: Online\n• Backup: Daily\n\n📊 Performance:\n• Response Time: <2 seconds\n• Uptime: 99.9%\n\n💡 Tip: All settings are automatically optimized for best performance.'));
+    document.getElementById('helpBtn').addEventListener('click', () => openModal('Help & Support', '❓ Help & Support - Material Entry System\n\n🚀 Getting Started:\n1. Click "Launch Application" to open the web app\n2. Fill in material entry details\n3. Data is automatically saved to the system\n\n📝 Features:\n• Real-time data entry and tracking\n• Automatic backup and sync\n• Commercial team integration\n• Dashboard reporting\n\n🆘 Support Contact:\n• Admin: Lakshan\n• Phone: 0772892711\n• Department: Commercial Team\n\n💡 Tips:\n• Use Dashboard to view reports\n• Check Settings for system status\n• Contact admin for technical support'));
+    document.getElementById('dashboardBtn').addEventListener('click', () => window.location.href = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRxRoqXa5h87pfYymuSXbHsuvR90a6Uu5U8JTa6mIbT4LORwb8mUeSRWqYHH14aWtHpcBIlJgXlRY0e/pubhtml');
+    
+    function openModal(title, content) {
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalContent = document.getElementById('modalContent');
+      modalTitle.textContent = title;
+      modalContent.textContent = content;
+      modal.classList.add('active');
     }
+    
+    document.getElementById('modalClose').addEventListener('click', () => {
+      document.getElementById('modal').classList.remove('active');
+    });
 
-    function openSettings() {
-      alert('⚙️ Application Settings\n\n' +
-            '🔧 Web Application Configuration:\n' +
-            '• Daily Counting Start: Active\n' +
-            '• Data Sync: Real-time\n' +
-            '• Auto-save: Enabled\n\n' +
-            '🌐 Connection Status:\n' +
-            '• Google Apps Script: Connected\n' +
-            '• Database: Online\n' +
-            '• Backup: Daily\n\n' +
-            '📊 Performance:\n' +
-            '• Response Time: <2 seconds\n' +
-            '• Uptime: 99.9%\n\n' +
-            '💡 Tip: All settings are automatically optimized for best performance.');
+    // Enhanced error handling for logo loading
+    function handleLogoError() {
+      const logo = document.getElementById('appLogo');
+      const fallback = document.getElementById('logoFallback');
+      logo.style.display = 'none';
+      fallback.style.display = 'flex';
     }
-
-    function openHelp() {
-      alert('❓ Help & Support - Material Entry System\n\n' +
-            '🚀 Getting Started:\n' +
-            '1. Click "Launch Application" to open the web app\n' +
-            '2. Fill in material entry details\n' +
-            '3. Data is automatically saved to the system\n\n' +
-            '📝 Features:\n' +
-            '• Real-time data entry and tracking\n' +
-            '• Automatic backup and sync\n' +
-            '• Commercial team integration\n' +
-            '• Dashboard reporting\n\n' +
-            '🆘 Support Contact:\n' +
-            '• Admin: Lakshan\n' +
-            '• Phone: 0772892711\n' +
-            '• Department: Commercial Team\n\n' +
-            '💡 Tips:\n' +
-            '• Use Dashboard to view reports\n' +
-            '• Check Settings for system status\n' +
-            '• Contact admin for technical support');
+    
+    // Add keyboard support
+    function addKeyboardSupport() {
+      // App icon keyboard support
+      document.getElementById('appIcon').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          launchApp();
+        }
+      });
+      
+      // Grid icons keyboard support
+      ['infoBtn', 'settingsBtn', 'helpBtn', 'dashboardBtn'].forEach(id => {
+        document.getElementById(id).addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            document.getElementById(id).click();
+          }
+        });
+      });
+      
+      // Modal keyboard support
+      document.getElementById('modal').addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.getElementById('modal').classList.remove('active');
+        }
+      });
     }
-
-    function openDashboard() {
-      // Open the Google Sheets dashboard in current tab
-      window.location.href = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRxRoqXa5h87pfYymuSXbHsuvR90a6Uu5U8JTa6mIbT4LORwb8mUeSRWqYHH14aWtHpcBIlJgXlRY0e/pubhtml';
-    }
-
+    
     // Initialize application on load
     document.addEventListener('DOMContentLoaded', function() {
-      // Add any initialization code here if needed
-      console.log('RMC Daily Counting Start - Application Loaded Successfully');
+      // Set up logo error handling
+      document.getElementById('appLogo').addEventListener('error', handleLogoError);
+      
+      // Add keyboard support
+      addKeyboardSupport();
+      
+      // Add click handler for app icon
+      document.getElementById('appIcon').addEventListener('click', launchApp);
+      
+      // Close modal when clicking outside
+      document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) {
+          document.getElementById('modal').classList.remove('active');
+        }
+      });
+      
+      console.log('✅ RMC Daily Counting Start - Application Loaded Successfully');
+      console.log('🔧 Professional enhancements applied:');
+      console.log('   • Enhanced security & accessibility');
+      console.log('   • Professional modal dialogs');
+      console.log('   • Improved error handling');
+      console.log('   • Keyboard navigation support');
+      console.log('   • Mobile-optimized responsive design');
     });
   </script>
 </body>
