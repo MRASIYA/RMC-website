@@ -19,10 +19,31 @@
     body {
       font-family: 'Roboto', sans-serif;
       height: 100vh;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease-in-out infinite;
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated Background Particles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.06) 1.5px, transparent 1.5px);
+      background-size: 300px 300px, 200px 200px, 250px 250px;
+      animation: floatParticles 20s linear infinite;
+      pointer-events: none;
+      z-index: 1;
     }
 
 
@@ -34,6 +55,10 @@
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       position: relative;
       padding: 20px;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
     }
 
     .home-screen {
@@ -412,6 +437,24 @@
       100% { width: 100%; }
     }
 
+    /* New Animation Keyframes */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatParticles {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+      100% { transform: translateY(0px) rotate(360deg); }
+    }
+
+    @keyframes staggeredFadeIn {
+      0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
     /* Responsive Design */
     @media (max-width: 480px) {
       .main-content {
@@ -559,14 +602,8 @@
       
       // Add slight delay for better UX
       setTimeout(() => {
-        window.open(GOOGLE_SCRIPT_URL, '_blank');
-        
-        // Reset button state after opening
-        setTimeout(() => {
-          button.classList.remove('loading');
-          button.disabled = false;
-          button.innerHTML = '<i class="fas fa-play"></i> Launch Application';
-        }, 1000);
+        // Open in current tab instead of new tab
+        window.location.href = GOOGLE_SCRIPT_URL;
       }, 1500);
     }
 
