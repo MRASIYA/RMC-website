@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RMC - Material Entry</title>
+  <title>RMC - Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -95,109 +95,127 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      background: #f5f5f5;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       position: relative;
+      padding: 20px;
     }
 
-    .content-area {
+    .home-screen {
       flex: 1;
-      padding: 24px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 32px 24px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       text-align: center;
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 24px;
     }
 
-    .counter-display {
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 48px;
-      font-weight: 300;
-      color: #3f51b5;
-      margin-bottom: 8px;
-      font-family: 'Roboto', monospace;
-    }
-
-    .counter-label {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 24px;
-      font-weight: 400;
-    }
-
-    .status-message {
-      font-size: 14px;
-      color: #4caf50;
-      margin-top: 12px;
-      min-height: 20px;
-      font-weight: 500;
-    }
-
-    /* Floating Action Button */
-    .fab {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: #ff5722;
-      border: none;
       color: white;
-      font-size: 24px;
+      box-shadow: 0 8px 25px rgba(238, 90, 82, 0.4);
+      margin-bottom: 24px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
-      z-index: 1000;
     }
 
-    .fab:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    .app-icon:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(238, 90, 82, 0.5);
     }
 
-    .fab:active {
+    .app-icon:active {
       transform: scale(0.95);
     }
 
-    /* Primary Button */
-    .primary-button {
-      background: linear-gradient(45deg, #3f51b5, #5c6bc0);
+    .app-name {
+      font-size: 18px;
+      font-weight: 500;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+
+    .app-description {
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-bottom: 32px;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+
+    .launch-button {
+      background: linear-gradient(45deg, #4CAF50, #45a049);
       color: white;
       border: none;
-      padding: 14px 32px;
-      border-radius: 24px;
+      padding: 16px 40px;
+      border-radius: 28px;
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(63, 81, 181, 0.3);
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
       transition: all 0.3s ease;
-      min-width: 200px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .primary-button:hover {
+    .launch-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(63, 81, 181, 0.4);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
     }
 
-    .primary-button:active {
+    .launch-button:active {
       transform: translateY(0);
     }
 
-    .primary-button:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 24px;
+      max-width: 400px;
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .grid-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(45deg, #9c27b0, #673ab7);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .grid-icon:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(156, 39, 176, 0.4);
+    }
+
+    .grid-label {
+      font-size: 12px;
+      color: #34495e;
+      font-weight: 400;
     }
 
     /* Watermark */
@@ -229,54 +247,44 @@
 
     /* Animations */
     .fade-in {
-      animation: fadeIn 0.5s ease;
+      animation: fadeIn 0.6s ease;
     }
 
-    .pulse {
-      animation: pulse 0.6s ease;
+    .slide-up {
+      animation: slideUp 0.8s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* Loading animation */
-    .loading {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 2px solid #f3f3f3;
-      border-top: 2px solid #3f51b5;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-left: 8px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
 
     /* Responsive Design */
     @media (max-width: 480px) {
-      .content-area {
-        padding: 16px 12px;
+      .main-content {
+        padding: 16px;
       }
       
-      .card {
-        padding: 24px 16px;
-        margin-bottom: 80px;
-      }
-      
-      .counter-display {
+      .app-icon {
+        width: 100px;
+        height: 100px;
         font-size: 40px;
+      }
+      
+      .launch-button {
+        padding: 14px 32px;
+        font-size: 15px;
+      }
+      
+      .app-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 32px;
       }
     }
   </style>
@@ -306,22 +314,44 @@
 
   <!-- Main Content -->
   <div class="main-content">
-    <div class="content-area">
-      <div class="card fade-in">
-        <div class="counter-display" id="counter-display">0</div>
-        <div class="counter-label">Daily Count</div>
-        <button class="primary-button" id="count-button" onclick="startDailyCount()">
-          <i class="fas fa-plus"></i> Start Daily Count
-        </button>
-        <div class="status-message" id="status-message"></div>
+    <div class="home-screen fade-in">
+      <div class="app-icon" onclick="launchApp()">
+        <i class="fas fa-cubes"></i>
+      </div>
+      <div class="app-name slide-up">Material Entry</div>
+      <div class="app-description slide-up">Seamlessly track and manage material entries with our intuitive web application. Get started with our easy-to-use interface.</div>
+      <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" class="launch-button slide-up" target="_blank">
+        <i class="fas fa-external-link-alt"></i> Launch Application
+      </a>
+      
+      <div class="app-grid">
+        <div class="grid-item">
+          <div class="grid-icon" onclick="openInfo()">
+            <i class="fas fa-info"></i>
+          </div>
+          <div class="grid-label">Info</div>
+        </div>
+        <div class="grid-item">
+          <div class="grid-icon" onclick="openSettings()">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="grid-label">Settings</div>
+        </div>
+        <div class="grid-item">
+          <div class="grid-icon" onclick="openHelp()">
+            <i class="fas fa-question"></i>
+          </div>
+          <div class="grid-label">Help</div>
+        </div>
+        <div class="grid-item">
+          <div class="grid-icon" onclick="openDashboard()">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="grid-label">Dashboard</div>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Floating Action Button -->
-  <button class="fab" onclick="resetCount()" title="Reset Count">
-    <i class="fas fa-refresh"></i>
-  </button>
 
   <!-- Watermark -->
   <div class="watermark">
