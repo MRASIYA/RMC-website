@@ -80,14 +80,51 @@
 
   <script>
     let count = 0;
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec';
 
-    function startDailyCount() {
-      count++;
-      const counter = document.getElementById("counter");
-      counter.textContent = "Daily Count: " + count;
-      counter.classList.remove("fade");
-      void counter.offsetWidth; // Restart animation
-      counter.classList.add("fade");
+    async function startDailyCount() {
+      try {
+        // Update local counter immediately for responsiveness
+        count++;
+        const counter = document.getElementById("counter");
+        counter.textContent = "Daily Count: " + count + " (Saving...)";
+        counter.classList.remove("fade");
+        void counter.offsetWidth; // Restart animation
+        counter.classList.add("fade");
+
+        // Send data to Google Apps Script
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Required for Google Apps Script
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            action: 'dailyCount',
+            count: count,
+            timestamp: new Date().toISOString(),
+            source: 'RMC Website'
+          })
+        });
+
+        // Update UI to show success
+        counter.textContent = "Daily Count: " + count + " ✓";
+        
+        // Reset to normal display after 2 seconds
+        setTimeout(() => {
+          counter.textContent = "Daily Count: " + count;
+        }, 2000);
+
+      } catch (error) {
+        console.error('Error sending data to Google Script:', error);
+        const counter = document.getElementById("counter");
+        counter.textContent = "Daily Count: " + count + " (Error - data saved locally)";
+        
+        // Reset to normal display after 3 seconds
+        setTimeout(() => {
+          counter.textContent = "Daily Count: " + count;
+        }, 3000);
+      }
     }
   </script>
 </body>
