@@ -70,94 +70,6 @@
       text-align: center;
     }
 
-    .app-icon {
-      width: 140px;
-      height: 140px;
-      background: linear-gradient(145deg, #ffffff 0%, #f0f2f5 50%, #ffffff 100%);
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.12),
-        0 8px 16px rgba(0, 0, 0, 0.08),
-        inset 0 1px 2px rgba(255, 255, 255, 0.9),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.05);
-      margin-bottom: 32px;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 20px;
-      border: 4px solid rgba(255, 255, 255, 0.95);
-      position: relative;
-      overflow: hidden;
-      animation: iconFloat 6s ease-in-out infinite;
-    }
-
-    /* Icon Glow Effect */
-    .app-icon::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      background: linear-gradient(45deg, 
-        rgba(102, 126, 234, 0.4) 0%,
-        rgba(118, 75, 162, 0.4) 25%,
-        rgba(255, 107, 107, 0.4) 50%,
-        rgba(76, 175, 80, 0.4) 75%,
-        rgba(102, 126, 234, 0.4) 100%);
-      border-radius: 32px;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      animation: rotateGlow 8s linear infinite;
-    }
-
-    .app-icon::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transform: rotate(45deg);
-      transition: all 0.6s;
-      opacity: 0;
-    }
-
-    .app-icon:hover::before {
-      animation: shimmer 0.8s ease-in-out;
-    }
-
-    .app-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 12px;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-      transition: all 0.3s ease;
-    }
-
-    .app-icon:hover {
-      transform: scale(1.08) translateY(-5px);
-      box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.2),
-        0 10px 25px rgba(0, 0, 0, 0.15),
-        inset 0 1px 2px rgba(255, 255, 255, 0.95);
-      animation-play-state: paused;
-    }
-
-    .app-icon:hover::after {
-      opacity: 0.8;
-    }
-
-    .app-icon:hover img {
-      transform: scale(1.02);
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-    }
-
-    .app-icon:active {
-      transform: scale(0.95);
-    }
 
     .app-name {
       font-size: 18px;
@@ -486,18 +398,6 @@
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* App Icon Animations */
-    @keyframes iconFloat {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      25% { transform: translateY(-8px) rotate(1deg); }
-      50% { transform: translateY(-12px) rotate(0deg); }
-      75% { transform: translateY(-8px) rotate(-1deg); }
-    }
-
-    @keyframes rotateGlow {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
 
     /* Responsive Design */
     @media (max-width: 480px) {
@@ -505,11 +405,6 @@
         padding: 16px;
       }
       
-      .app-icon {
-        width: 100px;
-        height: 100px;
-        font-size: 40px;
-      }
       
       .launch-button {
         padding: 14px 32px;
@@ -537,9 +432,6 @@
   <!-- Main Content -->
   <div class="main-content">
     <div class="home-screen fade-in">
-      <div class="app-icon" onclick="launchApp()">
-        <img src="https://synques-cdn.s3.ap-south-1.amazonaws.com/rmchemicals.in/images/rmc-logo.png" alt="RMC Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-cubes\" style=\"font-size: 48px; color: #2c3e50;\"></i>';">
-      </div>
       <div class="app-name slide-up">Daily Counting Start</div>
       <div class="app-description slide-up">Start your daily counting process with our efficient tracking system. Monitor and record daily activities seamlessly.</div>
       <button class="launch-button slide-up btn-effect" onclick="launchApp()" id="launchBtn">
