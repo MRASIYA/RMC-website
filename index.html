@@ -320,8 +320,8 @@
       </div>
       <div class="app-name slide-up">Material Entry</div>
       <div class="app-description slide-up">Seamlessly track and manage material entries with our intuitive web application. Get started with our easy-to-use interface.</div>
-      <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" class="launch-button slide-up" target="_blank">
-        <i class="fas fa-external-link-alt"></i> Launch Application
+      <a href="https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec" class="launch-button slide-up">
+        <i class="fas fa-play"></i> Launch Application
       </a>
       
       <div class="app-grid">
@@ -367,6 +367,39 @@
   <script>
     let count = 0;
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZwQrxxXeDnT1llTZb3h7Mj059z4y_3JuKnmQ2p5yIdQXbxttoDblg4coapbSy-gkq/exec';
+
+    // Launch web application in current tab
+    function launchApp() {
+      window.location.href = GOOGLE_SCRIPT_URL;
+    }
+
+    // Placeholder functions for grid icons
+    function openInfo() {
+      alert('Info: Material Entry Application\nVersion: 1.0\nDeveloped by: WAYLR');
+    }
+
+    function openSettings() {
+      alert('Settings functionality coming soon!');
+    }
+
+    function openHelp() {
+      alert('Help: Click the Launch Application button to access the Material Entry system.');
+    }
+
+    function openDashboard() {
+      alert('Dashboard functionality coming soon!');
+    }
+
+    // Update current time in status bar
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      document.getElementById('current-time').textContent = timeString;
+    }
+
+    // Update time every minute
+    setInterval(updateTime, 60000);
+    updateTime(); // Initial call
 
     async function startDailyCount() {
       try {
