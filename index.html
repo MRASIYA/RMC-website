@@ -488,16 +488,20 @@
       }, 1200);
     }
 
-    // Placeholder functions for grid icons
+    // Enhanced grid icon functions with loading states
     function openInfo() {
-      alert('🏢 RMC Commercial - Daily Counting Start\n\n' +
-            '📋 Application Details:\n' +
-            '• Version: 1.0\n' +
-            '• Department: Commercial Team\n\n' +
-            '👨‍💼 Admin Information:\n' +
-            '• Modify Admin: Lakshan\n' +
-            '• Contact: 0772892711\n\n' +
-            '🌐 Platform: RMC Commercial Web Portal');
+      showLoading('Loading Application Info...');
+      setTimeout(() => {
+        hideLoading();
+        alert('🏢 RMC Commercial - Daily Counting Start\n\n' +
+              '📋 Application Details:\n' +
+              '• Version: 1.0\n' +
+              '• Department: Commercial Team\n\n' +
+              '👨‍💼 Admin Information:\n' +
+              '• Modify Admin: Lakshan\n' +
+              '• Contact: 0772892711\n\n' +
+              '🌐 Platform: RMC Commercial Web Portal');
+      }, 800);
     }
 
     function openSettings() {
