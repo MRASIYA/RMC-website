@@ -9,9 +9,14 @@
   <meta name="theme-color" content="#667eea" />
   <title>RMC Commercial Team</title>
 
-  <!-- Fonts & Icons -->
+  <!-- Performance hints -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
 
@@ -32,7 +37,6 @@
       --dur-slow:.6s;
     }
 
-    /* Dark theme variables */
     html[data-theme="dark"]{
       --bg1:#1f1b56;
       --bg2:#2d1e6f;
@@ -53,11 +57,9 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* animated soft particles background */
     body::before{
       content:'';
-      position:fixed;inset:0;
-      pointer-events:none;
+      position:fixed;inset:0;pointer-events:none;
       background-image:
         radial-gradient(1200px 600px at -10% -20%, rgba(255,255,255,.06), transparent 40%),
         radial-gradient(800px 400px at 110% 120%, rgba(255,255,255,.05), transparent 45%),
@@ -69,11 +71,8 @@
       z-index:0;
     }
 
-    /* container card */
     .main-content{
-      position:relative;
-      z-index:1;
-      max-width: 720px;
+      position:relative; z-index:1; max-width: 720px;
       margin: clamp(16px,6vh,48px) auto calc(56px + env(safe-area-inset-bottom));
       background: linear-gradient(180deg, #f9fafb 0%, #eef2f7 100%);
       border-radius: var(--radius);
@@ -88,7 +87,6 @@
       box-shadow: 0 10px 36px rgba(0,0,0,.45);
     }
 
-    /* Theme toggle */
     .theme-toggle{
       position:absolute; top:12px; right:12px;
       width:38px; height:38px; border-radius:10px;
@@ -99,7 +97,6 @@
       transition: transform var(--dur), box-shadow var(--dur), background var(--dur);
     }
     .theme-toggle:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
-    .theme-toggle:active{ transform: translateY(0); }
     .theme-toggle:focus-visible{ outline:3px solid rgba(99,102,241,.5); outline-offset:3px; }
     html[data-theme="dark"] .theme-toggle{
       background:#0b1220cc; color:#e5e7eb; border-color: rgba(255,255,255,.08);
@@ -113,12 +110,8 @@
       display:grid;place-items:center;
       background: linear-gradient(145deg, #ffffff 0%, #f1f4f9 70%, #ffffff 100%);
       border: 3px solid rgba(255,255,255,.9);
-      box-shadow:
-        0 12px 26px rgba(0,0,0,.10),
-        inset 0 1px 2px rgba(255,255,255,.95);
-      margin: 8px 0 24px;
-      position:relative;
-      overflow:hidden;
+      box-shadow: 0 12px 26px rgba(0,0,0,.10), inset 0 1px 2px rgba(255,255,255,.95);
+      margin: 8px 0 24px; position:relative; overflow:hidden;
       will-change: transform;
       transition: transform var(--dur) cubic-bezier(.2,.8,.2,1), box-shadow var(--dur);
       animation: iconFloat 7s ease-in-out infinite;
@@ -140,8 +133,7 @@
         rgba(102,126,234,.28));
       filter: blur(18px) saturate(1.05);
       mix-blend-mode: screen;
-      opacity:.0;
-      transition: opacity var(--dur);
+      opacity:.0; transition: opacity var(--dur);
       animation: rotateGlow 10s linear infinite;
     }
     .app-icon:hover{ transform: translateY(-4px) scale(1.03); box-shadow: var(--shadow-2); }
@@ -155,7 +147,6 @@
     }
     .app-icon:hover img{ transform: scale(1.02); }
 
-    /* fallback icon styling if image fails */
     .app-icon .fallback-icon{
       font-size: clamp(40px, 7vw, 58px);
       color: #2c3e50;
@@ -194,28 +185,24 @@
       touch-action: manipulation;
     }
     .launch-button:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px rgba(76,175,80,.34); }
-    .launch-button:active{ transform: translateY(0); }
-    .launch-button:focus-visible{
-      outline: 3px solid rgba(76,175,80,.5);
-      outline-offset: 4px;
+    .launch-button:focus-visible{ outline: 3px solid rgba(76,175,80,.5); outline-offset: 4px; }
+
+    .launch-button .fa-list-check, .launch-button .fa-boxes-stacked, .launch-button .fa-user-check{
+      transition: transform var(--dur-fast);
+    }
+    .launch-button:hover .fa-list-check, .launch-button:hover .fa-boxes-stacked, .launch-button:hover .fa-user-check{
+      transform: translateX(2px);
     }
 
-    /* icon hover/transition */
-    .launch-button .fa-list-check, .launch-button .fa-boxes-stacked, .launch-button .fa-user-check{ transition: transform var(--dur-fast); }
-    .launch-button:hover .fa-list-check, .launch-button:hover .fa-boxes-stacked, .launch-button:hover .fa-user-check{ transform: translateX(2px); }
-
-    /* shimmer */
     .launch-button::after{
       content:'';
       position:absolute;inset:0;border-radius:inherit;pointer-events:none;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
       transform: translateX(-120%);
-      opacity:0;
-      transition: opacity var(--dur);
+      opacity:0; transition: opacity var(--dur);
     }
     .launch-button:hover::after{ opacity:1; animation: loadingSweep 1.2s ease-in-out; }
 
-    /* ripple on press */
     .btn-effect{ position:relative; overflow:hidden; }
     .btn-effect::before{
       content:'';
@@ -228,7 +215,6 @@
     }
     .btn-effect:active::before{ width:300px;height:300px; }
 
-    /* launch loading state */
     .launch-button.loading{
       background: linear-gradient(45deg, #81C784, #66BB6A);
       pointer-events:none;opacity:.9;
@@ -271,14 +257,12 @@
     .grid-label{ font-size:12px;color:#374151; }
     html[data-theme="dark"] .grid-label{ color:#cbd5e1; }
 
-    /* progress bar */
     .progress-bar{
       position: fixed; top: 0; left: 0; height: 3px; width: 0%;
       background: linear-gradient(90deg, var(--primary), var(--primary-2));
       z-index: 10000; transition: width .35s ease;
     }
 
-    /* Loading overlay */
     .loading-overlay{
       position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
       background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
@@ -295,7 +279,6 @@
     }
     .loading-text{ font-size:16px;font-weight:500; }
 
-    /* Modal */
     .modal{
       position:fixed;inset:0;display:none;align-items:center;justify-content:center;
       background: rgba(15,23,42,.44); z-index: 9998;
@@ -324,17 +307,16 @@
     html[data-theme="dark"] .modal-close{ color:#cbd5e1; }
     html[data-theme="dark"] .modal-close:hover{ background:#0f172a; }
 
-    /* watermark */
     .watermark{
       position: fixed; left:0; right:0; bottom:0;
       background: rgba(0,0,0,.82); color:#fff; display:flex; justify-content:space-between; align-items:center;
       padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      padding-bottom: calc(10px + constant(safe-area-inset-bottom)); /* iOS fallback */
       font-size:12px; z-index: 900;
     }
     .watermark-left{ display:flex;flex-direction:column;gap:2px; }
     .watermark-right{ font-weight:600; color:#9bd2ff; }
 
-    /* Animations */
     @keyframes gradientShift{
       0%{ background-position: 0% 50%; }
       50%{ background-position: 100% 50%; }
@@ -356,12 +338,10 @@
     @keyframes modalIn{ from{ opacity:0; transform: translateY(12px);} to{ opacity:1; transform: translateY(0);} }
     @keyframes loadingSweep{ from{ transform: translateX(-120%);} to{ transform: translateX(120%);} }
 
-    /* Motion-safe */
     @media (prefers-reduced-motion: reduce) {
       *{ animation: none !important; transition: none !important; }
     }
 
-    /* Responsive tweaks */
     @media (max-width: 480px){
       .app-icon{ width:108px;height:108px;border-radius:22px; }
       .launch-button{ padding:12px 22px; font-size:14px; }
@@ -370,6 +350,13 @@
   </style>
 </head>
 <body>
+  <!-- No-JS fallback -->
+  <noscript>
+    <div style="position:fixed;inset:0;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;z-index:100000;text-align:center;padding:20px;">
+      This page requires JavaScript to launch applications. Please enable JavaScript in your browser.
+    </div>
+  </noscript>
+
   <!-- Progress Bar -->
   <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
@@ -396,7 +383,6 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <!-- Theme toggle -->
     <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
       <i class="fa-solid fa-moon" id="themeIcon"></i>
     </button>
@@ -407,13 +393,14 @@
           src="https://synques-cdn.s3.ap-south-1.amazonaws.com/rmchemicals.in/images/rmc-logo.png"
           alt="RMC Logo"
           id="logoImg"
+          loading="lazy"
+          decoding="async"
         />
       </button>
 
       <h1 class="app-name">RMC Commercial Team</h1>
       <p class="app-description">Launch Daily Counting, Stock Counting, Employee Attendance, and Dashboard tools in one place.</p>
 
-      <!-- Action buttons: Daily Counting + Stock Counting + Employee Attendance -->
       <div class="action-buttons">
         <button class="launch-button btn-effect" id="launchBtn" aria-label="Open Daily Counting">
           <i class="fa-solid fa-list-check" aria-hidden="true"></i>
@@ -470,7 +457,7 @@
       <div>Modify Admin: Lakshan</div>
     </div>
     <div class="watermark-right">
-      <i class="fas fa-building" aria-hidden="true"></i> RMC Commercial
+      <i class="fas fa-building" aria-hidden="true"></i> RMC Commercial Team
     </div>
   </footer>
 
@@ -483,24 +470,23 @@
       const ATTENDANCE_URL    = 'https://rmc.timelabs.in/';
       const DASHBOARD_URL     = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRxRoqXa5h87pfYymuSXbHsuvR90a6Uu5U8JTa6mIbT4LORwb8mUeSRWqYHH14aWtHpcBIlJgXlRY0e/pubhtml';
 
-      const progressBar = document.getElementById('progressBar');
-      const loadingOverlay = document.getElementById('loadingOverlay');
-      const loadingText = document.getElementById('loadingText');
-      const launchBtn = document.getElementById('launchBtn');
-      const stockBtn = document.getElementById('stockBtn');
+      const progressBar   = document.getElementById('progressBar');
+      const loadingOverlay= document.getElementById('loadingOverlay');
+      const loadingText   = document.getElementById('loadingText');
+      const launchBtn     = document.getElementById('launchBtn');
+      const stockBtn      = document.getElementById('stockBtn');
       const attendanceBtn = document.getElementById('attendanceBtn');
-      const appIcon = document.getElementById('appIcon');
-      const logoImg = document.getElementById('logoImg');
+      const appIcon       = document.getElementById('appIcon');
+      const logoImg       = document.getElementById('logoImg');
 
-      const modal = document.getElementById('modal');
-      const modalClose = document.getElementById('modalClose');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalBody = document.getElementById('modalBody');
+      const modal       = document.getElementById('modal');
+      const modalClose  = document.getElementById('modalClose');
+      const modalTitle  = document.getElementById('modalTitle');
+      const modalBody   = document.getElementById('modalBody');
 
       const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = document.getElementById('themeIcon');
+      const themeIcon   = document.getElementById('themeIcon');
 
-      // Loading helpers
       const showLoading = (message = 'Loading...') => {
         loadingText.textContent = message;
         loadingOverlay.classList.add('active');
@@ -518,36 +504,36 @@
         }, 400);
       };
 
-      // Button ripple
       const setButtonRipple = (el, e) => {
+        if (!e) return;
         const rect = el.getBoundingClientRect();
-        el.style.setProperty('--x', `${e.clientX - rect.left}px`);
-        el.style.setProperty('--y', `${e.clientY - rect.top}px`);
+        const x = (e.clientX || 0) - rect.left;
+        const y = (e.clientY || 0) - rect.top;
+        el.style.setProperty('--x', x + 'px');
+        el.style.setProperty('--y', y + 'px');
       };
 
-      // Launching state (per button)
       const setLaunchingState = (btn, isLaunching, text='Launching...') => {
         if (!btn) return;
+        const span = btn.querySelector('span');
         if (isLaunching) {
           btn.classList.add('loading');
           btn.disabled = true;
-          const span = btn.querySelector('span');
           if (span) span.textContent = text;
         } else {
           btn.classList.remove('loading');
           btn.disabled = false;
-          const span = btn.querySelector('span');
-          if (!span) return;
-          if (btn.id === 'stockBtn') span.textContent = 'Stock Counting';
-          else if (btn.id === 'attendanceBtn') span.textContent = 'Employee Attendance Record';
-          else span.textContent = 'Daily Counting';
+          if (span) {
+            if (btn.id === 'stockBtn') span.textContent = 'Stock Counting';
+            else if (btn.id === 'attendanceBtn') span.textContent = 'Employee Attendance Record';
+            else span.textContent = 'Daily Counting';
+          }
         }
       };
 
-      // Modal
       const openModal = (title, content) => {
         modalTitle.textContent = title;
-        modalBody.textContent = content; // safe text
+        modalBody.textContent = content;
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
         setTimeout(()=>modalClose.focus(), 50);
@@ -557,21 +543,20 @@
         modal.setAttribute('aria-hidden', 'true');
       };
 
-      // Actions (same-tab navigation)
-      const launchApp = () => {
+      const launchDaily = () => {
         setLaunchingState(launchBtn, true, 'Launching...');
         showLoading('Opening Daily Counting...');
-        setTimeout(()=>{ window.location.href = GOOGLE_SCRIPT_URL; }, 1200);
+        setTimeout(()=>{ window.location.href = GOOGLE_SCRIPT_URL; }, 1000);
       };
       const launchStock = () => {
         setLaunchingState(stockBtn, true, 'Launching...');
         showLoading('Opening Stock Counting...');
-        setTimeout(()=>{ window.location.href = STOCK_SCRIPT_URL; }, 1200);
+        setTimeout(()=>{ window.location.href = STOCK_SCRIPT_URL; }, 1000);
       };
       const launchAttendance = () => {
         setLaunchingState(attendanceBtn, true, 'Launching...');
         showLoading('Opening Employee Attendance...');
-        setTimeout(()=>{ window.location.href = ATTENDANCE_URL; }, 1000);
+        setTimeout(()=>{ window.location.href = ATTENDANCE_URL; }, 800);
       };
       const openInfo = () => {
         openModal(
@@ -582,7 +567,7 @@
       const openSettings = () => {
         openModal(
           'Application Settings',
-          'Web Application Configuration:\n• Daily Counting: Active\n• Data Sync: Real-time\n• Auto-save: Enabled\n\nConnection Status:\n• Google Apps Script: Connected\n• Database: Online\n• Backup: Daily\n\nPerformance:\n• Response Time: <2 seconds\n• Uptime: 99.9%'
+          'Web Application Configuration:\n• Daily Counting: Active\n• Data Sync: Real-time\n• Auto-save: Enabled\n\nStatus:\n• Google Apps Script: Connected\n• Database: Online\n• Backup: Daily\n\nPerformance:\n• Response Time: <2 seconds\n• Uptime: 99.9%'
         );
       };
       const openHelp = () => {
@@ -593,10 +578,9 @@
       };
       const openDashboard = () => {
         showLoading('Opening Dashboard...');
-        setTimeout(()=>{ window.location.href = DASHBOARD_URL; }, 650);
+        setTimeout(()=>{ window.location.href = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRxRoqXa5h87pfYymuSXbHsuvR90a6Uu5U8JTa6mIbT4LORwb8mUeSRWqYHH14aWtHpcBIlJgXlRY0e/pubhtml'; }, 600);
       };
 
-      // Theme
       const updateThemeIcon = () => {
         const theme = document.documentElement.getAttribute('data-theme') || 'light';
         if (theme === 'dark') {
@@ -620,8 +604,8 @@
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       };
 
-      // Events
-      launchBtn.addEventListener('click', launchApp);
+      // Event bindings
+      launchBtn.addEventListener('click', launchDaily);
       launchBtn.addEventListener('pointerdown', (e)=> setButtonRipple(launchBtn, e));
 
       stockBtn.addEventListener('click', launchStock);
@@ -630,18 +614,15 @@
       attendanceBtn.addEventListener('click', launchAttendance);
       attendanceBtn.addEventListener('pointerdown', (e)=> setButtonRipple(attendanceBtn, e));
 
-      // App icon launches Daily Counting
-      appIcon.addEventListener('click', launchApp);
-      appIcon.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); launchApp(); }});
+      appIcon.addEventListener('click', launchDaily);
+      appIcon.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); launchDaily(); }});
       appIcon.addEventListener('pointerdown', (e)=> setButtonRipple(appIcon, e));
 
-      // Image fallback for app icon
       logoImg.addEventListener('error', ()=>{
         logoImg.style.display = 'none';
         appIcon.innerHTML = '<i class="fas fa-cubes fallback-icon" aria-hidden="true"></i>';
       });
 
-      // Grid actions
       document.querySelectorAll('.grid-icon').forEach(icon=>{
         icon.addEventListener('click', ()=>{
           const action = icon.dataset.action;
@@ -658,24 +639,18 @@
         });
       });
 
-      // Modal controls
       modalClose.addEventListener('click', closeModal);
       modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('show')) closeModal(); });
 
-      // Theme toggle
       themeToggle.addEventListener('click', ()=>{
         const theme = document.documentElement.getAttribute('data-theme') || 'light';
         setTheme(theme === 'dark' ? 'light' : 'dark');
       });
 
-      // Initialize theme
       setTheme(getPreferredTheme());
-
-      // Safety: hide loader on pageshow if it was left open
       window.addEventListener('pageshow', ()=> hideLoading(), { once:true });
 
-      // App init
       document.addEventListener('DOMContentLoaded', ()=>{
         console.log('RMC Commercial Team - Loaded');
       });
